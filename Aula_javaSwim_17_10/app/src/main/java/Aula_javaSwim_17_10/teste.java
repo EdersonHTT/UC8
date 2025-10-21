@@ -35,10 +35,11 @@ public class teste extends javax.swing.JFrame {
         result = new javax.swing.JLabel();
         buttonMultiplicacao = new javax.swing.JButton();
         buttonDivisao = new javax.swing.JButton();
+        subtrair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        conteiner.setBackground(new java.awt.Color(204, 255, 255));
+        conteiner.setBackground(new java.awt.Color(255, 255, 255));
 
         nu1.setText("Digite um numero...");
         nu1.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -61,7 +62,7 @@ public class teste extends javax.swing.JFrame {
         });
 
         labelLogin.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        labelLogin.setForeground(new java.awt.Color(0, 255, 102));
+        labelLogin.setForeground(new java.awt.Color(204, 204, 255));
         labelLogin.setText("Calculadora");
         labelLogin.setPreferredSize(new java.awt.Dimension(80, 16));
 
@@ -90,6 +91,7 @@ public class teste extends javax.swing.JFrame {
         });
 
         result.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        result.setForeground(new java.awt.Color(0, 0, 0));
         result.setText("Resultado: ");
 
         buttonMultiplicacao.setBackground(new java.awt.Color(0, 102, 204));
@@ -110,58 +112,76 @@ public class teste extends javax.swing.JFrame {
             }
         });
 
+        subtrair.setBackground(new java.awt.Color(0, 102, 204));
+        subtrair.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        subtrair.setText("-");
+        subtrair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subtrairActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout conteinerLayout = new javax.swing.GroupLayout(conteiner);
         conteiner.setLayout(conteinerLayout);
         conteinerLayout.setHorizontalGroup(
             conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(conteinerLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
                 .addGroup(conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(conteinerLayout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addGroup(conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nu1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nu2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(result)))
-                    .addGroup(conteinerLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(conteinerLayout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addComponent(buttonSoma)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonMultiplicacao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonDivisao)))
-                .addContainerGap(524, Short.MAX_VALUE))
+                    .addComponent(result)
+                    .addGroup(conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(conteinerLayout.createSequentialGroup()
+                            .addGroup(conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(buttonSoma, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                                .addComponent(subtrair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(29, 29, 29)
+                            .addGroup(conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(buttonMultiplicacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonDivisao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(nu1, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nu2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(102, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, conteinerLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160))
         );
         conteinerLayout.setVerticalGroup(
             conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(conteinerLayout.createSequentialGroup()
-                .addGap(153, 153, 153)
+                .addGap(134, 134, 134)
                 .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(nu1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(nu2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonDivisao)
-                    .addComponent(buttonMultiplicacao)
-                    .addComponent(buttonSoma))
-                .addGap(18, 18, 18)
+                .addGap(49, 49, 49)
                 .addComponent(result)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(nu1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nu2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonSoma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonMultiplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(conteinerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonDivisao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(subtrair, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(207, 207, 207))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(conteiner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(conteiner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 422, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(conteiner, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(conteiner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -228,9 +248,17 @@ public class teste extends javax.swing.JFrame {
         if(numero1 != 0 && numero2 != 0) {
             this.result.setText(textoResult + (numero1 / numero2));
         } else {
-            JOptionPane.showConfirmDialog(this, "Divisao por 0 nao permitidas");
+            JOptionPane.showMessageDialog(this, "Divisao por 0 nao permitidas");
         }
     }//GEN-LAST:event_buttonDivisaoActionPerformed
+
+    private void subtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtrairActionPerformed
+        int numero1 = Integer.parseInt(this.nu1.getText());
+        int numero2 = Integer.parseInt(this.nu2.getText());
+        
+        String textoResult = "Resultado: ";
+        this.result.setText(textoResult + (numero1 - numero2));
+    }//GEN-LAST:event_subtrairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,6 +304,7 @@ public class teste extends javax.swing.JFrame {
     private javax.swing.JTextField nu1;
     private javax.swing.JTextField nu2;
     private javax.swing.JLabel result;
+    private javax.swing.JButton subtrair;
     // End of variables declaration//GEN-END:variables
 
 }
