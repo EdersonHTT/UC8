@@ -11,13 +11,7 @@ package Aula_20_10;
 public class PokemonModel {
     private String name;
     private String type;
-    private double height;
-    
-    public PokemonModel(String name, String type, double height) {
-        this.name = name;
-        this.type = type;
-        this.height = height;
-    }
+    private int lvl;
 
     public String getName() {
         return name;
@@ -35,11 +29,17 @@ public class PokemonModel {
         this.type = type;
     }
 
-    public double getHeight() {
-        return height;
+    public int getLvl() {
+        return lvl;
     }
 
-    public void setHeight(double height) {
-        this.height = height;
+    public void setLvl(int lvl) {
+        this.lvl = lvl;
+    }
+
+    public PokemonModel(String name, String type, int lvl) {
+        this.name = name;
+        this.type = type;
+        this.lvl = lvl;
     }
 }
