@@ -14,6 +14,7 @@ public class Projeto extends javax.swing.JFrame {
 
     public Projeto() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -111,7 +112,7 @@ public class Projeto extends javax.swing.JFrame {
         User user = DataBase.verify(email, password);
         
         if(user != null) {
-            new Perfil(user.getName(), email, password).setVisible(true);
+            new Perfil(user.getName(), email).setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(this, "Invalid Info");

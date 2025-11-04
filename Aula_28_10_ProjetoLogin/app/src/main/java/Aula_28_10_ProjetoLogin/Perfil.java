@@ -4,17 +4,23 @@
  */
 package Aula_28_10_ProjetoLogin;
 
+import javax.swing.JOptionPane;
+import java.util.Arrays;
+
 /**
  *
  * @author EDERSONDASILVASCHMID
  */
 public class Perfil extends javax.swing.JFrame {
 
+    private String userName;
+    private String userEmail;
     /**
      * Creates new form Perfil
      */
     public Perfil() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -31,17 +37,9 @@ public class Perfil extends javax.swing.JFrame {
         emailField = new javax.swing.JTextField();
         btnLeave = new javax.swing.JButton();
         btnPut = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
         profileLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        nameField1 = new javax.swing.JTextField();
-        emailField1 = new javax.swing.JTextField();
-        btnLeave1 = new javax.swing.JButton();
-        btnPut1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        passwordField1 = new javax.swing.JPasswordField();
-        profileLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,10 +50,25 @@ public class Perfil extends javax.swing.JFrame {
         });
 
         btnLeave.setText("Sair");
+        btnLeave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLeaveActionPerformed(evt);
+            }
+        });
 
         btnPut.setText("Alterar");
+        btnPut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPutActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("jButton1");
+        btnDelete.setText("Deletar Conta");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         profileLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         profileLabel.setText("Perfil");
@@ -68,7 +81,7 @@ public class Perfil extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(176, 176, 176)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -82,7 +95,7 @@ public class Perfil extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(244, 244, 244)
                         .addComponent(profileLabel)))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,67 +113,8 @@ public class Perfil extends javax.swing.JFrame {
                     .addComponent(btnLeave)
                     .addComponent(btnPut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        emailField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailField1ActionPerformed(evt);
-            }
-        });
-
-        btnLeave1.setText("Sair");
-
-        btnPut1.setText("Alterar");
-
-        jButton4.setText("jButton1");
-
-        profileLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        profileLabel1.setText("Perfil");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nameField1)
-                            .addComponent(emailField1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnLeave1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPut1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(passwordField1)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(profileLabel1)))
-                .addContainerGap(149, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(profileLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(nameField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(emailField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLeave1)
-                    .addComponent(btnPut1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btnDelete)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,30 +122,56 @@ public class Perfil extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public Perfil(String name, String email, char[] password) {
+    public Perfil(String name, String email) {
+        initComponents();
+        setLocationRelativeTo(null);
         
+        this.userName = name;        
+        this.userEmail = email;
+
+        
+        nameField.setText(name);
+        emailField.setText(email);
     }
     
     private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailFieldActionPerformed
 
-    private void emailField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailField1ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        DataBase.delete(userEmail);
+        JOptionPane.showMessageDialog(this, "Usuario apagado com sucesso");
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnPutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPutActionPerformed
+        String name = nameField.getText();
+        String email = emailField.getText(); 
+        char[] password = passwordField.getPassword();
+        
+        if(name.trim().equals("") 
+                && email.trim().equals("")
+                && Arrays.equals(password, new char[]{})) {
+            DataBase.put(userEmail, name, email, password);
+            JOptionPane.showMessageDialog(this, "Usuario atualizado com sucesso");
+        }
+        JOptionPane.showMessageDialog(this, "Coloque informacoes nos campos");
+    }//GEN-LAST:event_btnPutActionPerformed
+
+    private void btnLeaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeaveActionPerformed
+        new Projeto().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLeaveActionPerformed
 
     
     /**
@@ -230,21 +210,13 @@ public class Perfil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnLeave;
-    private javax.swing.JButton btnLeave1;
     private javax.swing.JButton btnPut;
-    private javax.swing.JButton btnPut1;
     private javax.swing.JTextField emailField;
-    private javax.swing.JTextField emailField1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField nameField;
-    private javax.swing.JTextField nameField1;
     private javax.swing.JPasswordField passwordField;
-    private javax.swing.JPasswordField passwordField1;
     private javax.swing.JLabel profileLabel;
-    private javax.swing.JLabel profileLabel1;
     // End of variables declaration//GEN-END:variables
 }
